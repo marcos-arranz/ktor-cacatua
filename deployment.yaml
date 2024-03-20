@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ktorcacatua
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ktorcacatua
+  template:
+    metadata:
+      labels:
+        app: ktorcacatua
+    spec:
+      containers:
+        - name: ktorcacatua-container
+          image: ktorcacatua:v3
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8080
